@@ -1,4 +1,4 @@
-# Práctica Calificada N°5
+# Práctica Calificada 5
 ## Pregunta 2
 
 - Agregando cucumber a las gemas
