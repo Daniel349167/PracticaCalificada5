@@ -12,10 +12,10 @@
 
 - migraciones y seeders:
 
-  ![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/88095eae-4c60-4056-8f3a-1e282f9436d5)
+![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/88095eae-4c60-4056-8f3a-1e282f9436d5)
 
 - rake db:setup
-  ![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/329a6809-cdcf-4d39-a3b9-6cb4dd3a46ef)
+![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/329a6809-cdcf-4d39-a3b9-6cb4dd3a46ef)
 
 - inicializando la app:
 ![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/5e29b913-cad4-4a93-a301-12ffc4f13c03)
