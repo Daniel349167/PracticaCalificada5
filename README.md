@@ -18,6 +18,15 @@ Resultado:
 
 ![image](https://github.com/Daniel349167/PC2-DesarrolloDesSoftware/assets/62466867/b895f7a5-be69-4af2-b5a6-1eacc3ffb28c)
 
+#### 4. De la actividad relacionada a BDD e historias de usuario crea definiciones de pasos que te permitan escribir los siguientes pasos en un escenario de RottenPotatoes:
+```ruby
+Given the movie "Inception" exists
+And it has 5 reviews
+And its average review score is 3.5
+```
+
+
+
 ## Pregunta 2
 
 
