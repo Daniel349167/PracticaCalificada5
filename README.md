@@ -25,7 +25,7 @@ And it has 5 reviews
 And its average review score is 3.5
 ```
 
-- pasos BDD:
+- Pasos BDD:
   
 ```ruby
 Característica: Calificaciones de reseñas de películas
@@ -39,6 +39,9 @@ Escenario: Verificar el promedio de calificación de una película
   Cuando calculo su calificación promedio
   Entonces el promedio de calificación debería ser 3.5
 ```
+#### 5. De la actividad relacionadas a BDD e historias de usuario, supongamos que en RottenPotatoes, en lugar de utilizar seleccionar la calificación y la fecha de estreno, se opta por rellenar el formulario en blanco. Primero, realiza los cambios apropiados al escenario. Enumera las definiciones de pasos a partir que Cucumber invocaría al pasar las pruebas de estos nuevos pasos. (Recuerda: rails generate cucumber:install)
+
+
 
 ## Pregunta 2
 
