@@ -24,6 +24,9 @@ Given the movie "Inception" exists
 And it has 5 reviews
 And its average review score is 3.5
 ```
+
+- pasos BDD:
+  
 ```ruby
 Característica: Calificaciones de reseñas de películas
   Para mantener la integridad y la utilidad de las calificaciones de las películas
