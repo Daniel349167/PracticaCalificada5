@@ -24,8 +24,18 @@ Given the movie "Inception" exists
 And it has 5 reviews
 And its average review score is 3.5
 ```
+```ruby
+Característica: Calificaciones de reseñas de películas
+  Para mantener la integridad y la utilidad de las calificaciones de las películas
+  Como un usuario del sitio web
+  Quiero asegurarme de que las calificaciones promedio de las películas sean correctas
 
-
+Escenario: Verificar el promedio de calificación de una película
+  Dado que la película "Inception" existe
+  Y tiene 5 reseñas
+  Cuando calculo su calificación promedio
+  Entonces el promedio de calificación debería ser 3.5
+```
 
 ## Pregunta 2
 
