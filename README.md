@@ -30,7 +30,7 @@ And its average review score is 3.5
 ```ruby
 # features/step_definitions/movie_steps.rb
 
-Given(/^the movie "(.*?)" with (\d+) reviews and average score of (\d+\.\d+) exists$/) do |title, num_reviews, avg_score|
+Given(/^the movie "(.*?)" with (\d+) reviews and average review of (\d+\.\d+) exists$/) do |title, num_reviews, avg_review|
   Movie.create!(title: title, rating: 'PG', description: 'A great movie', release_date: '2010-01-01')
 end
 ```
@@ -39,30 +39,79 @@ end
 ![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/38f2e0ec-b9b4-461a-b54c-540ed3cc92c4)
 - completando el escenario:
 ```ruby
-# features/agregar_pelicula.feature
+# language: es
+Característica: Añadir nueva película
+  Como un usuario de RottenPotatoes
+  Quiero añadir una nueva película
+  Para poder expandir la base de datos de películas del sitio
 
-Característica: Agregar nueva película
-  Como usuario
-  Quiero agregar detalles de una nueva película
-  Para poder llevar un registro de todas las películas en mi colección
-
-Escenario: Agregar una nueva película con título, calificación y fecha de lanzamiento
-  Dado que he decidido agregar una nueva película
-  Cuando estoy en la página de Crear Nueva Película
-  Y lleno el campo "Título" con "The Shawshank Redemption"
-  Y lleno el campo "Calificación" con "PG-13"
-  Y lleno el campo "Fecha de Lanzamiento" con "1994-09-23"
-  Y presiono "Guardar Cambios"
-  Entonces debería ver "The Shawshank Redemption ha sido agregada"
+Escenario: Añadir una película con información completa
+  Dado que estoy en la página de añadir una nueva película
+  Cuando relleno el formulario con la siguiente información:
+    | title        | rating | release_date |
+    | El Padrino   | R      | 2020-03-24   |
+  Y presiono el botón "Save Changes"
+  Entonces debería estar en la página principal
+  Y debería ver "El Padrino"
  ```
 
 - definiciones de pasos:
+```ruby
+
+Dado("que estoy en la página de añadir una nueva película") do
+    visit new_movie_path
+  end
+  
+Cuando("relleno el formulario con la siguiente información:") do |table|
+movie_data = table.hashes.first
+fill_in 'movie[title]', with: movie_data['title']
+select movie_data['rating'], from: 'movie[rating]' unless movie_data['rating'].nil?
+
+unless movie_data['release_date'].nil?
+    date = Date.parse(movie_data['release_date'])
+    select date.year.to_s, from: 'movie_release_date_1i'
+    select I18n.t('date.month_names')[date.month], from: 'movie_release_date_2i'
+    select date.day.to_s, from: 'movie_release_date_3i'
+end
+end
+
+Y("presiono el botón {string}") do |button_name|
+click_button button_name
+end
+
+Entonces("debería estar en la página principal") do
+    expect(page).to have_current_path(movies_path)
+end
+  
+Entonces("debería ver {string}") do |content|
+expect(page).to have_content(content)
+end
+```
+
+- paso las pruebas:
+![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/8b21e2e8-1288-47bf-a0b7-c2c0100925ed)
+
 
 #### 6. De la actividad relacionadas a BDD e historias de usuario indica una lista de pasos para implementar el siguiente paso:
 ```ruby
 When / I delete the movie: "(.*)"/ do |title|
  ```
+- delete_movie.feature
+```ruby
+# language: es
+Característica: Eliminar una película existente
+  Como usuario de RottenPotatoes
+  Quiero eliminar una película
+  Para mantener actualizada la base de datos de películas del sitio
 
+Escenario: Eliminar una película de la lista
+  Dado que he añadido "El Padrino" con rating "R"
+  Y estoy en la página principal
+  Cuando selecciono la película "El Padrino"
+  Y presiono "Delete"
+  Entonces soy redirigido a la página principal
+  Y no debería ver "El Padrino"
+ ```
 - completando la lista de pasos:
 ```ruby
 # Eliminar una película
