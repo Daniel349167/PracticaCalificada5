@@ -25,28 +25,19 @@ And it has 5 reviews
 And its average review score is 3.5
 ```
 
-- Pasos BDD:
+- Pasos:
   
 ```ruby
-Característica: Calificaciones de reseñas de películas
-  Para mantener la integridad y la utilidad de las calificaciones de las películas
-  Como un usuario del sitio web
-  Quiero asegurarme de que las calificaciones promedio de las películas sean correctas
+# features/step_definitions/movie_steps.rb
 
-Escenario: Verificar el promedio de calificación de una película
-  Dado que la película "Inception" existe
-  Y tiene 5 reseñas
-  Cuando calculo su calificación promedio
-  Entonces el promedio de calificación debería ser 3.5
+Given(/^the movie "(.*?)" with (\d+) reviews and average score of (\d+\.\d+) exists$/) do |title, num_reviews, avg_score|
+  Movie.create!(title: title, rating: 'PG', description: 'A great movie', release_date: '2010-01-01')
+end
 ```
 #### 5. De la actividad relacionadas a BDD e historias de usuario, supongamos que en RottenPotatoes, en lugar de utilizar seleccionar la calificación y la fecha de estreno, se opta por rellenar el formulario en blanco. Primero, realiza los cambios apropiados al escenario. Enumera las definiciones de pasos a partir que Cucumber invocaría al pasar las pruebas de estos nuevos pasos. (Recuerda: rails generate cucumber:install)
 - inicializando Cucumber:
 ![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/38f2e0ec-b9b4-461a-b54c-540ed3cc92c4)
-- basandome en esto codigo en cucumber:
-
-![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/4e7b40bc-77ca-4dc0-bce9-f5a34a1ff8f3)
-
-puedo enumerar las definiciones de pasos:
+- completando el escenario:
 ```ruby
 # features/agregar_pelicula.feature
 
@@ -64,8 +55,22 @@ Escenario: Agregar una nueva película con título, calificación y fecha de lan
   Y presiono "Guardar Cambios"
   Entonces debería ver "The Shawshank Redemption ha sido agregada"
  ```
-#### 6. 
 
+- definiciones de pasos:
+
+#### 6. De la actividad relacionadas a BDD e historias de usuario indica una lista de pasos para implementar el siguiente paso:
+```ruby
+When / I delete the movie: "(.*)"/ do |title|
+ ```
+
+- completando la lista de pasos:
+```ruby
+# Eliminar una película
+When /^I delete the movie "(.*)"/ do |title|
+  movie = Movie.find_by_title(title)
+  movie.destroy
+end
+ ```
 
 
 ## Pregunta 2
