@@ -43,7 +43,9 @@ Escenario: Verificar el promedio de calificación de una película
 - inicializando Cucumber:
 ![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/38f2e0ec-b9b4-461a-b54c-540ed3cc92c4)
 - basandome en esto codigo en cucumber:
+
 ![image](https://github.com/Daniel349167/PracticaCalificada5/assets/62466867/4e7b40bc-77ca-4dc0-bce9-f5a34a1ff8f3)
+
 puedo enumerar las definiciones de pasos:
 ```ruby
 # features/agregar_pelicula.feature
